@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	<util:properties id="Managersql">
+		<prop key="addManager">
+			Insert into Management(name,password,phone,email)values(:name,:password,:phone,:email)
+		</prop>
+		<prop key="getUserName">select * from Management where email=:email</prop>
+		<prop key="deleteclientaccount">delete from customers where id=:id</prop>
+		<prop key="deleteemployeeaccount">delete from drivers where id=:id</prop>
+		<prop key="bookings">select * from bookings</prop>
+		<prop key="getclienthistory">select * from history where customer_id = :id </prop>
+		<prop key="getemployeehistory">select * from history where driver_id = :id</prop>
+		<prop key="getAllCustomers">select * from customers </prop>
+		<prop key="getAllemployees">select * from drivers</prop>
+		<prop key="update">update Management set </prop><prop key="updatetext"> = :value where id = :id </prop>
+	</util:properties>
+	
+	<util:properties id="Customersql">
+		<prop key="addCustomer">
+			Insert into customers(name,password,phone,email,gender,age)values(:name,:password,:phone,:email,:gender,:age)
+		</prop>
+		<prop key="getUserName">select * from customers where email=:email</prop>
+		<prop key="getAvailablecabs">select id,name,phone,email,car_num from drivers where onduty = 1 and id not in(select driver_id from bookings)</prop>
+		<prop key="bookCab">Insert into bookings(customer_id,driver_id)values(:customer_id ,:driver_id) </prop>
+		<prop key="cancelride">delete from bookings where customer_id = :customer_id </prop>
+		<prop key="deleteaccount">delete from customers where id = :customer_id </prop>
+		<prop key="gethistory">select * from history where customer_id = :customer_id </prop>
+		<prop key="update">update customers set </prop><prop key="updatetext"> = :value where id = :id </prop>
+		</util:properties>
+	
+	<util:properties id="Driversql">
+		<prop key="addDriver">
+			Insert into drivers(name,password,phone,email,gender,age,licence_num,car_num)values(:name,:password,:phone,:email,:gender,:age,:licence_num,:car_num)
+		</prop>
+		<prop key="getUserName">select * from drivers where email=:email</prop>
+		<prop key="bookedBy">select name,phone,email from customers where id in (select customer_id from bookings where driver_id = :id)</prop>
+		<prop key="setduty">update drivers set onduty = :value where id = :id</prop>
+		<prop key="inservice">select onduty from drivers where id = :id</prop>
+		<prop key="droped">delete from bookings where driver_id = :id</prop>
+		<prop key="deleteaccount">delete from drivers where id = :id </prop>
+		<prop key="gethistory">select * from history where driver_id = :id </prop>
+		<prop key="update">update drivers set </prop><prop key="updatetext"> = :value where id = :id </prop>
+	</util:properties>
+</beans>

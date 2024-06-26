@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register Page</title>
+	<style type="text/css">
+		#dr{
+			border: 2px solid black;
+			padding: 10px;
+			margin: auto;
+			text-align: center;
+			width: 600px;
+			border-radius: 10px;
+			margin-top: 5%;
+		}
+		td{
+			padding :10px;
+			width: 200px;
+		}
+		#head{
+			border: 2px solid black;
+			border-radius: 10px;
+			text-decoration: underline;
+			text-align: center;
+		}
+	</style>
+</head>
+<body style = "background-color: beige;">
+	<div id="dr">
+		<form action="file:///C:/Users/Kalyan%20Reddy/Desktop/jspratice/Login.html">
+			<h1 id="head">Registeration</h1>
+		 <table>
+    		<tr><td >Username</td><td><input type="text" name="name" ></td></tr>
+   		    <tr><td>Password</td><td><input type="password" name="password"></td></tr>
+    		<tr><td>Phone</td><td><input type="tel" name="phone"></td></tr>
+    		<tr><td>Email</td><td><input type="email" name="email"></td></tr>
+   		    <tr><td>Gender</td><td><input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female</td></tr>
+    		<tr><td>Age</td><td><input type="number" name="age"></td></tr>
+   		    <tr><td>License number</td><td><input type="text" name="licenseNum"></td></tr>
+   			<tr><td>Car number</td><td><input type="text" name="carNum"></td></tr></table>
+			<input type="checkbox" name="termsAccepted" value="true" required > I agree to the <span   style="color:blue">terms and conditions</span><br><br>
+			<div style=" border: black solid 1px; text-align:left ;overflow :auto;height:80px;padding:2px">
+			<p>
+			<center><B><u>Terms And Conditions:</u></B></center> <br> 
+   			1) once the cab is booked driver can't stop the service    <br>
+  		    2)driver should not go morethen minimum speed   <br>
+   			3) your data will not be shared any where<br></p>
+<!-- <p><span style="border:2px solid black;float:right; padding :2px" >close</span></p><br>
+   <br>--></div>
+ 			<br> <input type="submit" value="Submit" >
+  			<input type="reset" value="reset" >
+
+		</form>
+	</div>
+
+</body>
+</html>
